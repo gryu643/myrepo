@@ -289,6 +289,12 @@ int main(int arvc, char *argv[]){
 		tmp = queue[tmp].pre_addr;
 	}
 
+	printf("受信系列：");
+	for(i=0;i<len;i++){
+		printf("%s ", received[i]);
+	}
+	printf("\n");
+
 	printf("情報系列：");
 	for(i=0;i<len-2;i++){
 		printf("%d ", queue[state_addr[i]].jouhoukeiretsu);
