@@ -2,9 +2,20 @@
 #include<iostream>
 using namespace std;
 
-int main()
-{
-	cout << "hello" << endl;
+class Kitty{
+	public:
+		char *str;
+		void print(char *);
+};
+
+void Kitty::print(char *str){
+	cout << str;
+}
+
+int main(){
+	Kitty obj;
+	obj.str = "Kitty on your lap";
+	obj.print("hello,world!");
 
 	return 0;
 }

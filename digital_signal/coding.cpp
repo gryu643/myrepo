@@ -52,6 +52,8 @@ int main(int argc, char* argv[])
 {
 	int D1=0;
 	int D2=0;
+	int O1=0;
+	int O2=0;
 	int i=0;
 	int len=0;
 	char *tp;
@@ -77,20 +79,24 @@ int main(int argc, char* argv[])
 	while(tp != NULL){
 		input[i] = ctoi(tp);
 		tp = strtok(NULL, ",");
-		cout << input[i] << endl;
 		i++;
 	}
 
 	//受信系列の長さ
 	len = i;
 
-	for(i=0;i<len;i++)
+	for(i=0;i<len-1;i++)
 	{
 		//出力系列の書き込み
-		ofs << input[i]+D1+D2 << input[i]+D2 <<",";
+		O1 = (input[i]+D1+D2)%2;
+		O2 = (input[i]+D2)%2;
+		ofs << O1 << O2 <<",";
 		D2 = D1;
 		D1 = input[i];
 	}
-
+	O1 = (input[i]+D1+D2)%2;
+	O2 = (input[i]+D2)%2;
+	ofs << O1 << O2;
+	
 	return 0;
 }
